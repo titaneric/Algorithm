@@ -5,3 +5,7 @@ class Error(Exception):
 class RangeError(Error):
     def __init__(self, message):
         self.message = message
+
+class SizeError(Error):
+    def __init__(self, message):
+        self.message = message

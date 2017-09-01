@@ -1,5 +1,5 @@
 from RB_tree import RB_Tree
-from tree_node import OS_TreeNode, OS_Nil
+from node import OS_TreeNode, OS_Nil
 from custom_exception import RangeError
 
 

@@ -1,5 +1,5 @@
 from BS_tree import BS_Tree
-from tree_node import Nil, RB_TreeNode, Color, OS_TreeNode
+from node import Nil, RB_TreeNode, Color, OS_TreeNode
 
 
 class RB_Tree(BS_Tree):
