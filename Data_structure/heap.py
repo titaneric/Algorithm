@@ -19,7 +19,16 @@ class Heap(list):
         return super().__len__() - 1
 
     def __iter__(self):
-        return self.__iter__(self[1:])
+        self.n = 1
+        return self
+
+    def __next__(self):
+        if self.n < len(self):
+            result = self[self.n]
+            self.n += 1
+            return result
+        else:
+            raise StopIteration
 
     def __str__(self):
         return "[{0}]".format(", ".join(str(val) for val in self[1:]))
@@ -102,4 +111,5 @@ if __name__ == "__main__":
     l = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
     heap = Heap(l)
     heap.heap_sort()
-    print(heap)
+    for h in heap:
+        print(h)

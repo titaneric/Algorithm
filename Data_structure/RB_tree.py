@@ -1,5 +1,5 @@
 from BS_tree import BS_Tree
-from node import Nil, RB_TreeNode, Color, OS_TreeNode
+from node import Nil, RB_TreeNode, Color, OS_TreeNode, Pair
 
 
 class RB_Tree(BS_Tree):
@@ -15,6 +15,18 @@ class RB_Tree(BS_Tree):
     @root.setter
     def root(self, root: RB_TreeNode):
         self.__root = root
+    
+    def leftmost(self) -> RB_TreeNode: 
+        return super().leftmost()
+
+    def rightmost(self) -> RB_TreeNode:
+        return super().rightmost()
+
+    def begin(self) -> RB_TreeNode:
+        return self.leftmost()
+
+    def end(self) -> RB_TreeNode:
+        return self.nil
 
     @property
     def size(self):
@@ -102,7 +114,7 @@ class RB_Tree(BS_Tree):
         super().tree_insert(z, nil=self.nil)
         z.left, z.right, z.color = (self.nil, self.nil, Color.RED)
         self.RB_insert_fixup(z)
-
+    
     def RB_insert_fixup(self, z: RB_TreeNode):
         while z.p.color is Color.RED:
             if z.p == z.p.p.left:

@@ -1,3 +1,5 @@
+import copy
+
 from enum import Enum, auto
 
 
@@ -7,16 +9,17 @@ class LinkedList_Node:
         self.next = None
         self.key = k
 
+
 class LinkedList_Nil(LinkedList_Node):
     def __init__(self):
         super().__init__(None)
         self.prev = self
         self.next = self
 
+
 class TreeNode:
     def __init__(self, val=None):
-        if val is not None:
-            self.key = val
+        self.key = val
         self.right = None
         self.left = None
         self.p = None
@@ -94,6 +97,7 @@ class B_TreeNode:
         else:
             return self.searchNode(self.child_pointers[i], k)
 
+
 class FibonacciHeap_TreeNode:
     def __init__(self):
         self.degree = 0
@@ -102,8 +106,25 @@ class FibonacciHeap_TreeNode:
         self.child = None
         self.mark = False
 
+
 class Fibonacci_Nil(FibonacciHeap_TreeNode):
     def __init__(self):
         super().__init__()
 
 
+class Pair:
+    def __init__(self, k, v):
+        self.key = k
+        self.value = v
+
+    def __eq__(self, other):
+        return self.key == other.key
+
+    def __ne__(self, other):
+        return self.key != other.key
+
+    def __lt__(self, other):
+        return self.key < other.key
+
+    def __gt__(self, other):
+        return self.key > other.key

@@ -1,7 +1,7 @@
 from queue import Queue
 from typing import Iterator
 
-from node import TreeNode, Color, OS_TreeNode
+from node import TreeNode, Color, OS_TreeNode, Pair
 
 
 class BS_Tree:
@@ -16,6 +16,12 @@ class BS_Tree:
     @root.setter
     def root(self, root: TreeNode):
         self.__root = root
+    
+    def leftmost(self):
+        return self.tree_minimum()
+
+    def rightmost(self):
+        return self.tree_maximum()
 
     @property
     def size(self):
