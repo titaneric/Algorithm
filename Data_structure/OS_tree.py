@@ -1,5 +1,5 @@
 from RB_tree import RB_Tree
-from node import OS_TreeNode, OS_Nil
+from node.OS_treeNode import OS_TreeNode, OS_Nil
 from custom_exception import RangeError
 
 
@@ -16,7 +16,7 @@ class OS_tree(RB_Tree):
     @root.setter
     def root(self, root):
         self.__root = root
-    
+
     @property
     def size(self):
         return self.__size
@@ -33,7 +33,7 @@ class OS_tree(RB_Tree):
         super().tree_insert(z)
         for node in self.path(start=z, end=self.root):
             node.size += 1
-    
+
     def tree_delete(self, z: OS_TreeNode):
         super().tree_delete(z)
         for node in self.path(start=z, end=self.root):
@@ -41,7 +41,8 @@ class OS_tree(RB_Tree):
 
     def OS_select(self, i) -> OS_TreeNode:
         if not (1 <= i <= self.size):
-            raise RangeError("The given i must be in the range(1, {})".format(self.size + 1))
+            raise RangeError(
+                "The given i must be in the range(1, {})".format(self.size + 1))
 
         return self.__OS_select(self.root, i)
 

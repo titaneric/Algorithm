@@ -1,5 +1,4 @@
-from node import LinkedList_Node, LinkedList_Nil
-
+from node.linkedList_node import LinkedList_Node, LinkedList_Nil
 
 class Linked_List:
     def __init__(self):

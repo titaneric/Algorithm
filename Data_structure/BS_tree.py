@@ -1,7 +1,8 @@
 from queue import Queue
 from typing import Iterator
 
-from node import TreeNode, Color
+from node.treeNode import TreeNode
+from node.RB_treeNode import Color
 
 
 class BS_Tree:
@@ -16,7 +17,7 @@ class BS_Tree:
     @root.setter
     def root(self, root: TreeNode):
         self.__root = root
-    
+
     def leftmost(self):
         return self.tree_minimum()
 
@@ -216,4 +217,3 @@ if __name__ == "__main__":
     # print(tree.height)
     for node in tree.levelorder_tree_walk():
         print(node.key)
-    

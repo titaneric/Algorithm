@@ -1,5 +1,5 @@
 from RB_tree import RB_Tree
-from node import RB_TreeNode
+from node.RB_treeNode import RB_TreeNode
 
 
 class RB_set:
@@ -21,8 +21,7 @@ class RB_set:
     def __next__(self):
         if self.__it != self.__map.end():
             result = self.__it.key
-            next_node = self.__map.tree_successor(self.__it)
-            self.__it = next_node
+            self.__it = self.__map.tree_successor(self.__it)
             return result
         else:
             raise StopIteration
