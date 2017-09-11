@@ -53,11 +53,11 @@ class RB_Tree(BS_Tree):
     def tree_predecessor(self, x):
         return super().tree_predecessor(x, nil=self.nil)
 
-    def tree_maximum(self):
-        return super().tree_maximum(self.root, nil=self.nil)
+    def tree_maximum(self, x=None, nil=None):
+        return super().tree_maximum(x, nil=self.nil)
 
-    def tree_minimum(self):
-        return super().tree_minimum(self.root, nil=self.nil)
+    def tree_minimum(self, x=None, nil=None):
+        return super().tree_minimum(x, nil=self.nil)
 
     def levelorder_tree_walk(self):
         yield from super().levelorder_tree_walk(nil=self.nil)

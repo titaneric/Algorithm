@@ -1,7 +1,7 @@
 from queue import Queue
 from typing import Iterator
 
-from node import TreeNode, Color, OS_TreeNode, Pair
+from node import TreeNode, Color
 
 
 class BS_Tree:

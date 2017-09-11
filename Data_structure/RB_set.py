@@ -1,5 +1,3 @@
-import copy
-
 from RB_tree import RB_Tree
 from node import RB_TreeNode
 
@@ -7,7 +5,7 @@ from node import RB_TreeNode
 class RB_set:
     def __init__(self):
         self.__map = RB_Tree()
-        self.__iter_key = None
+        self.__it = None
 
     def __len__(self):
         return self.__map.size
@@ -17,17 +15,14 @@ class RB_set:
         return node != self.__map.nil
 
     def __iter__(self):
-        self.__iter_key = self.__map.begin().key
+        self.__it= self.__map.begin()
         return self
 
     def __next__(self):
-        node = self.__map.tree_search(self.__iter_key)
-        if node != self.__map.end():
-            result = self.__iter_key
-            next_node = self.__map.tree_successor(node)
-            print("node is", next_node.key)
-            self.__iter_key = next_node.key
-            print("change to", self.__iter_key)
+        if self.__it != self.__map.end():
+            result = self.__it.key
+            next_node = self.__map.tree_successor(self.__it)
+            self.__it = next_node
             return result
         else:
             raise StopIteration
