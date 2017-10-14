@@ -1,8 +1,21 @@
 from node.linkedList_node import LinkedList_Node, LinkedList_Nil
 
+
 class Linked_List:
     def __init__(self):
         self.nil = LinkedList_Nil()
+    
+    def __iter__(self):
+        self.__iter = self.nil.next
+        return self
+
+    def __next__(self):
+        if self.__iter != self.nil:
+            result = self.__iter.key
+            self.__iter = self.__iter.next
+            return result
+        else:
+            raise StopIteration
 
     @property
     def begin(self):
@@ -12,7 +25,6 @@ class Linked_List:
     def end(self):
         return self.nil
 
-    @property
     def empty(self):
         return self.nil.next == self.nil and self.nil.prev == self.nil
 
@@ -51,9 +63,28 @@ class Linked_List:
             x = x.next
         return x
 
+    def concat(self, other: 'Linked_List'):
+        other.nil.prev.next = self.nil.next
+        self.nil.next.prev = other.nil.prev
+        self.nil.next = other.nil.next
+        other.nil.next.prev = self.nil
+
+
 
 if __name__ == "__main__":
     key_list = [9, 16, 4, 1]
     link_list = Linked_List()
     for k in key_list:
         link_list.insert(LinkedList_Node(k))
+
+    # print(link_list.size)
+
+    k_list = [1, 2, 3, 4]
+    l = Linked_List()
+    for k in k_list:
+        l.insert(LinkedList_Node(k))
+    
+    link_list.concat(l)
+    for k in link_list:
+        print(k)
+

@@ -38,7 +38,7 @@ class RB_Tree(BS_Tree):
         self.__size = size
 
     @property
-    def nil(self):
+    def nil(self) -> Nil:
         return self.__nil
 
     @property
@@ -48,16 +48,16 @@ class RB_Tree(BS_Tree):
     def calculate_depth(self, node: RB_TreeNode):
         return super().calculate_depth(node, nil=self.nil)
 
-    def tree_successor(self, x):
+    def tree_successor(self, x) -> RB_TreeNode:
         return super().tree_successor(x, nil=self.nil)
 
-    def tree_predecessor(self, x):
+    def tree_predecessor(self, x) -> RB_TreeNode:
         return super().tree_predecessor(x, nil=self.nil)
 
-    def tree_maximum(self, x=None, nil=None):
+    def tree_maximum(self, x=None, nil=None) -> RB_TreeNode:
         return super().tree_maximum(x, nil=self.nil)
 
-    def tree_minimum(self, x=None, nil=None):
+    def tree_minimum(self, x=None, nil=None) -> RB_TreeNode:
         return super().tree_minimum(x, nil=self.nil)
 
     def levelorder_tree_walk(self):

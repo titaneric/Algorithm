@@ -5,7 +5,7 @@ from node.RB_treeNode import RB_TreeNode
 class RB_set:
     def __init__(self):
         self.__map = RB_Tree()
-        self.__it = None
+        self.__it = self.__map.nil
 
     def __len__(self):
         return self.__map.size
@@ -22,6 +22,7 @@ class RB_set:
         if self.__it != self.__map.end():
             result = self.__it.key
             self.__it = self.__map.tree_successor(self.__it)
+            # print(self.__it.key) # Key is expected to change to next tree node
             return result
         else:
             raise StopIteration
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     my_set = RB_set()
     for k in k_list:
         my_set.add(k)
-    
+
     for s in my_set:
         print(s)
     

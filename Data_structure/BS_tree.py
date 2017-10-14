@@ -1,6 +1,6 @@
-from queue import Queue
 from typing import Iterator
 
+from my_queue import My_queue
 from node.treeNode import TreeNode
 from node.RB_treeNode import Color
 
@@ -50,17 +50,17 @@ class BS_Tree:
                        self.calculate_depth(node.right)) + 1
 
     def levelorder_tree_walk(self, nil=None) -> Iterator[TreeNode]:
-        q = Queue()
-        q.put(self.root)
+        q = My_queue()
+        q.enqueue(self.root)
         while not q.empty():
-            n = q.qsize()
+            n = q.size
             for _ in range(n):
-                node = q.get()
+                node = q.dequeue()
                 yield node
                 if node.left is not nil:
-                    q.put(node.left)
+                    q.enqueue(node.left)
                 if node.right is not nil:
-                    q.put(node.right)
+                    q.enqueue(node.right)
 
     def inorder_tree_walk(self, nil=None) -> Iterator[TreeNode]:
         yield from self.__inorder_tree_walk(self.root, nil=nil)
